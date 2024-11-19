@@ -13,13 +13,16 @@ import com.banking.system.bankingsystem.cof.AppConfig;
 public class BankApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //FXMLLoader fxmlLoader = new FXMLLoader(BankApplication.class.getResource("hello-view.fxml"));
+        // Initialize configuration
         AppConfig.init();
 
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        // Load the login screen as the initial view
+        Parent loginView = FXMLLoader.load(getClass().getResource("login-view.fxml"));
 
-        Scene scene = new Scene(fxmlLoader, AppConfig.stageWidth, AppConfig.stageHeight);
+        // Create the scene
+        Scene scene = new Scene(loginView, AppConfig.stageWidth, AppConfig.stageHeight);
 
+        // Configure the stage
         stage.setTitle(AppConfig.title);
         stage.setResizable(AppConfig.stageResizable);
         stage.getIcons().add(new Image(BankApplication.class.getResourceAsStream(AppConfig.icon)));

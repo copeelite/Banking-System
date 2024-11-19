@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+
 /**
  * @create 2024-10
  * @author FanghaoMeng
@@ -23,11 +24,11 @@ public class AppConfig {
     /**
      * Window width
      */
-    public static int stageWidth = 600;
+    public static int stageWidth = 1800;
     /**
      * Window Height
      */
-    public static int stageHeight = 600;
+    public static int stageHeight = 1800;
     /**
      * Allow adjustment of window size
      */

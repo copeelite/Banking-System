@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.banking.system.bankingsystem.DashboardController">
+    <top>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #f0f0f0;">
+            <Label text="Welcome to Your Dashboard" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <Button text="Logout" onAction="#onLogoutButtonClick" />
+        </HBox>
+    </top>
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Button text="Account Summary" onAction="#onAccountSummaryClick" />
+            <Button text="Transfer Funds" onAction="#onTransferClick" />
+            <Button text="Deposit" onAction="#onDepositClick" />
+            <Button text="Withdraw" onAction="#onWithdrawClick" />
+        </VBox>
+    </left>
+    <center>
+        <Label fx:id="contentLabel" text="Select an option from the menu." />
+    </center>
+</BorderPane>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.banking.system.bankingsystem.LoginController">
+    <Label text="Login to Bank Application" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <TextField fx:id="usernameField" promptText="Username" />
+    <PasswordField fx:id="passwordField" promptText="Password" />
+    <Button text="Login" onAction="#onLoginButtonClick" />
+    <Label fx:id="errorLabel" textFill="red" visible="false" />
+</VBox>
