@@ -16,7 +16,7 @@ public class BankApplication extends Application {
         //FXMLLoader fxmlLoader = new FXMLLoader(BankApplication.class.getResource("hello-view.fxml"));
         AppConfig.init();
 
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/fxml/signin.fxml"));
 
         Scene scene = new Scene(fxmlLoader, AppConfig.stageWidth, AppConfig.stageHeight);
 

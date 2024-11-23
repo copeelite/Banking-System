@@ -1,0 +1,118 @@
+/* Sign-in Container Styles */
+.signin_container {
+    -fx-background-color: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+    -fx-padding: 20px;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 5);
+}
+
+/* Logo Container Styles */
+.signin_logo_container {
+    -fx-background-color: lightblue;
+    -fx-alignment: center;
+    -fx-padding: 15px;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* Logo Text Styles */
+.signin_logo_container Text {
+    -fx-font-size: 2.5em;
+    -fx-fill: #333333;
+    -fx-font-family: 'Arial', sans-serif;
+}
+
+/* FontAwesome Icon Styles */
+.signin_logo_container FontAwesomeIconView {
+    -fx-fill: #0078D7;
+    -fx-font-size: 5em;
+}
+
+/* Add some hover effect for interactivity */
+.signin_container:hover {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #d6d6d6);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0.5, 0, 7);
+}
+
+.account_selector {
+    -fx-background-color: #EC39E;
+    -fx-font-size: 1.2em;
+}
+
+.account_selector .label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 1.2em;
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-font-weight: bold;
+}
+
+.account_selector .arrow {
+    -fx-background-color: #0078D7;
+}
+
+/* Choice Box Popup Menu Styles */
+#choice-box-popup-menu {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+#choice-prompt_text {
+    -fx-font-weight: 400;
+    -fx-font-size: 1.2em;
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-text-fill: #333333;
+}
+.signin_form_container {
+    -fx-spacing: 15;
+    -fx-alignment: top_left;
+}
+
+.signin_form_container Label {
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
+.input_field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 1.2em;
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-text-fill: #333333;
+}
+
+.input_field:focused {
+    -fx-border-color: #0078D7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 215, 0.25), 10, 0.5, 0, 2);
+}
+
+
+.signin_form_container Button {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-pref-height: 35;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+.signin_form_container Button:hover {
+    -fx-background-color: #005FAD;
+    -fx-cursor: hand;
+
+}
+
+.error_label {
+    -fx-text-fill: #ff0000;
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}

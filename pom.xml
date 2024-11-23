@@ -55,6 +55,12 @@
             <version>12.3.1</version>
         </dependency>
         <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome5-pack</artifactId>
+            <version>12.3.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.kordamp.bootstrapfx</groupId>
             <artifactId>bootstrapfx-core</artifactId>
             <version>0.4.0</version>
@@ -94,7 +100,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.banking.system.bankingsystem/com.banking.system.bankingsystem.HelloApplication
+                                com.banking.system.bankingsystem/com.banking.system.bankingsystem.BankApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
