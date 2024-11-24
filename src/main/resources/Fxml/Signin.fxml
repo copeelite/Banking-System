@@ -30,8 +30,8 @@
             <TextField fx:id="email_address_fld" styleClass="input_field" />
             <Label text="Password:" />
             <TextField fx:id="password_fld" styleClass="input_field" />
-            <Button fx:id="signin_btn" mnemonicParsing="false" text="Button" />
-            <Label fx:id="error_lbl" styleClass="error_label" text="error-message" />
+            <Button fx:id="signin_btn" mnemonicParsing="false" text="Sign In" />
+            <Label fx:id="error_lbl" styleClass="error_label" />
          </children>
       </VBox>
     </children>

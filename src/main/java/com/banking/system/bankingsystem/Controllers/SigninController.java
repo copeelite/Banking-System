@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 public class SigninController implements Initializable {
@@ -20,9 +22,15 @@ public class SigninController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         signin_btn.setOnAction(e -> {
-            System.out.println("Signin button clicked");
-            Model.getInstance().getViewFactory().showClientWindow();
+            onSigninButtonClick();
         });
 
+    }
+
+    private void onSigninButtonClick() {
+        System.out.println("Signin button clicked");
+        Stage stage = (Stage) error_lbl.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showClientWindow();
     }
 }

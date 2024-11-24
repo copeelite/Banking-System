@@ -56,4 +56,8 @@ public class ViewFactory {
         stage.getIcons().add(new Image(BankApplication.class.getResourceAsStream(AppConfig.icon)));
         stage.show();
     }
+
+    public void closeStage(Stage stage) {
+        stage.close();
+    }
 }
