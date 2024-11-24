@@ -7,15 +7,16 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane fx:id="client_parent" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml">
-    <HBox>
+    <left>
         <VBox>
             <fx:include source="ClientMenu.fxml"/>
         </VBox>
+    </left>
+    <center>
         <VBox>
             <fx:include source="Dashboard.fxml"/>
         </VBox>
-    </HBox>
-
-</AnchorPane>
+    </center>
+</BorderPane>
