@@ -110,7 +110,19 @@
     -fx-cursor: hand;
 
 }
+.signup_button {
+    -fx-background-color: #ff6347; /* Tomato color */
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-family: "Arial";
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
 
+.signup_button:hover {
+    -fx-background-color: #ff4500; /* OrangeRed color */
+}
 .error_label {
     -fx-text-fill: #ff0000;
     -fx-font-size: 1.1em;

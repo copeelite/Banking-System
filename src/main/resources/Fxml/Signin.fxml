@@ -33,6 +33,7 @@
         <Label text="Password:"/>
         <TextField fx:id="password_fld" styleClass="input_field"/>
         <Button fx:id="signin_btn" mnemonicParsing="false" text="Sign In"/>
+        <Button text="Don't have an account?" onAction="#handleSignUp" styleClass="signup_button"/>
         <Label fx:id="error_lbl" styleClass="error_label"/>
     </VBox>
 </AnchorPane>
