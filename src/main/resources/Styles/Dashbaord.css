@@ -1,0 +1,111 @@
+/* General Styles */
+* {
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* AnchorPane Styling */
+AnchorPane {
+    -fx-background-color: #f4f4f9;
+}
+
+Text {
+    -fx-font-weight: bold;
+}
+
+Label {
+    -fx-text-fill: #444;
+}
+
+
+
+/* Account Summary Section */
+HBox > AnchorPane {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0.3, 2, 2);
+}
+
+
+
+
+
+/* FontAwesomeIcon Styling */
+.glyph-icon {
+    -fx-fill: #2d89ef;
+}
+
+/* Income and Expenses Box */
+VBox > VBox {
+    -fx-padding: 10;
+    -fx-background-color: #fff;
+    -fx-background-radius: 8px;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0.3, 2, 2);
+}
+
+VBox > VBox > Text {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+
+
+/* Latest Transactions List */
+ListView {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 8px;
+    -fx-padding: 10;
+}
+
+ListView .list-cell {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Send Money Form */
+VBox > Label {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+VBox > TextField {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 4px;
+    -fx-padding: 8;
+}
+.bank_amount {
+    -fx-text-fill: black; /* Black color for bank amount */
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+.income_amount {
+    -fx-fill: #4CAF50; /* Green color for income */
+    -fx-font-weight: bold;
+}
+
+.expense_amount {
+    -fx-fill: red; /* Red color for expense */
+    -fx-font-weight: bold;
+}
+VBox > Button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+VBox > Button:hover {
+    -fx-background-color: #45a049;
+}
+
+/* Overall Styling for Alignment */
+VBox, HBox {
+    -fx-spacing: 10;
+}

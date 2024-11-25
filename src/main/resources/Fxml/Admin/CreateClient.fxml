@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banking.system.bankingsystem.Controllers.Admin.CreateClientController">
+   <children>
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <VBox layoutX="14.0" layoutY="31.0" prefHeight="700.0" prefWidth="600.0" />
+   </children>
+</AnchorPane>

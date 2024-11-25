@@ -1,0 +1,72 @@
+
+.signup_container {
+    -fx-background-color: linear-gradient(to bottom, #f7f7f7, #e7e7e7);
+}
+
+.signup_logo_container {
+    -fx-background-color: #d5f5d5;
+    -fx-alignment: center;
+}
+
+.signup_logo_container Text {
+    -fx-font-size: 2.2em;
+    -fx-fill: #2e2e2e;
+}
+
+.signup_logo_container FontAwesomeIconView {
+    -fx-fill: #33a33c;
+    -fx-font-size: 4.5em;
+}
+
+.signup_form_container {
+    -fx-spacing: 15;
+    -fx-alignment: top_left;
+}
+
+.signup_form_container Label {
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+
+.input_field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 1.2em;
+}
+
+.signup_form_container Button {
+    -fx-background-color: #33a33c;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+    -fx-pref-height: 40;
+    -fx-border-radius: 5px;
+}
+
+.signup_form_container Button:hover {
+    -fx-background-color: #288b2f;
+    -fx-cursor: hand;
+}
+
+.error_label {
+    -fx-text-fill: #ff0000;
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
+.signup_button {
+    -fx-background-color: #ff6347; /* Tomato color */
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-family: "Arial";
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.signup_button:hover {
+    -fx-background-color: #ff4500; /* OrangeRed color */
+}

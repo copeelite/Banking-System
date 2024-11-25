@@ -1,0 +1,39 @@
+.anchor-pane {
+    -fx-background-color: #f5f5f5;
+}
+
+.transactions_container {
+ -fx-font-size: 2.5em;
+}
+.list-view {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5px;
+    -fx-control-inner-background: #ffffff;
+    -fx-padding: 10px;
+}
+
+.list-view .list-cell {
+    -fx-font-family: "Verdana";
+    -fx-font-size: 14px;
+    -fx-text-fill: #444444;
+    -fx-background-color: #f9f9f9;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #e0e0e0;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: #d9eaff;
+}
+
+.list-view .list-cell:focused,
+.list-view .list-cell:selected {
+    -fx-background-color: #5a9bd4;
+    -fx-text-fill: white;
+}
+
+.list-view .scroll-bar {
+    -fx-padding: 5px;
+}
