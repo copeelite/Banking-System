@@ -1,6 +1,8 @@
 package com.banking.system.bankingsystem.Controllers;
 
 import com.banking.system.bankingsystem.Models.Model;
+import com.banking.system.bankingsystem.Views.AccountType;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 public class SigninController implements Initializable {
 
-    public ChoiceBox account_selector;
+    public ChoiceBox<AccountType> account_selector;
     public Label email_lbl;
     public TextField email_address_fld;
     public TextField password_fld;
@@ -25,6 +27,9 @@ public class SigninController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        account_selector.setItems(FXCollections.observableArrayList(AccountType.CLIENT, AccountType.ADMIN, AccountType.EMPLOYEE));
+        account_selector.setValue(Model.getInstance().getViewFactory().getSigninAccountType());
+        account_selector.valueProperty().addListener((observable -> Model.getInstance().getViewFactory().setSigninAccountType(account_selector.getValue())));
         signin_btn.setOnAction(e -> {
             onSigninButtonClick();
         });
@@ -35,7 +40,16 @@ public class SigninController implements Initializable {
         System.out.println("Signin button clicked");
         Stage stage = (Stage) error_lbl.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showClientWindow();
+//        Model.getInstance().getViewFactory().showClientWindow();
+        if(Model.getInstance().getViewFactory().getSigninAccountType() == AccountType.CLIENT) {
+            Model.getInstance().getViewFactory().showClientWindow();
+        }
+        else if(Model.getInstance().getViewFactory().getSigninAccountType() == AccountType.EMPLOYEE){
+            Model.getInstance().getViewFactory().showEmployeeWindow();
+        }
+        else{
+            Model.getInstance().getViewFactory().showAdminWindow();
+        }
     }
 
     public void handleSignUp() {

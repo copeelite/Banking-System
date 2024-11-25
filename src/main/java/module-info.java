@@ -15,6 +15,7 @@ module com.banking.system.bankingsystem {
     exports com.banking.system.bankingsystem.Controllers;
     exports com.banking.system.bankingsystem.Controllers.Admin;
     exports com.banking.system.bankingsystem.Controllers.Client;
+    exports com.banking.system.bankingsystem.Controllers.Employee;
     exports com.banking.system.bankingsystem.Models;
     exports com.banking.system.bankingsystem.Views;
 
