@@ -10,6 +10,10 @@
             fx:controller="com.banking.system.bankingsystem.Controllers.Employee.CreateAccountController"
             stylesheets="@../../Styles/CreateAccount.css">
     
+    <fx:define>
+        <ToggleGroup fx:id="accountTypeGroup"/>
+    </fx:define>
+    
     <VBox spacing="20" alignment="TOP_CENTER" layoutX="50" layoutY="30">
         <Text text="Create New Customer Account" styleClass="title-text">
             <font>
@@ -20,15 +24,15 @@
         <VBox spacing="10" styleClass="form-section">
             <Label text="Customer Information" styleClass="section-header"/>
             <TextField fx:id="customerEmail" promptText="Email Address"/>
-            <TextField fx:id="customerName" promptText="Full Name"/>
-            <PasswordField fx:id="customerPassword" promptText="Password"/>
         </VBox>
         
         <VBox spacing="10" styleClass="form-section">
             <Label text="Account Type" styleClass="section-header"/>
             <HBox spacing="20">
-                <CheckBox fx:id="savingsCheck" text="Savings Account"/>
-                <CheckBox fx:id="checkingCheck" text="Checking Account"/>
+                <RadioButton fx:id="savingsCheck" text="Savings Account" 
+                           toggleGroup="$accountTypeGroup"/>
+                <RadioButton fx:id="checkingCheck" text="Checking Account" 
+                           toggleGroup="$accountTypeGroup"/>
             </HBox>
         </VBox>
         

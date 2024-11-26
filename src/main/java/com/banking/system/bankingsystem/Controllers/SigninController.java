@@ -44,19 +44,6 @@ public class SigninController implements Initializable {
 
     }
 
-    // private void onSigninButtonClick() {
-    //     System.out.println("Signin button clicked");
-    //     Stage stage = (Stage) error_lbl.getScene().getWindow();
-    //     Model.getInstance().getViewFactory().closeStage(stage);
-    //     // Model.getInstance().getViewFactory().showClientWindow();
-    //     if (Model.getInstance().getViewFactory().getSigninAccountType() == AccountType.CLIENT) {
-    //         Model.getInstance().getViewFactory().showClientWindow();
-    //     } else if (Model.getInstance().getViewFactory().getSigninAccountType() == AccountType.EMPLOYEE) {
-    //         Model.getInstance().getViewFactory().showEmployeeWindow();
-    //     } else {
-    //         Model.getInstance().getViewFactory().showAdminWindow();
-    //     }
-    // }
     private void onSigninButtonClick() {
         String email = email_address_fld.getText().trim();
         String password = password_fld.getText().trim();
@@ -68,9 +55,12 @@ public class SigninController implements Initializable {
         }
     
         if (validateUser(email, password, selectedRole)) {
+
+            Model.getInstance().setCurrentUserEmail(email);
+
             Stage stage = (Stage) error_lbl.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-            
+
             switch (selectedRole) {
                 case CLIENT:
                     Model.getInstance().getViewFactory().showClientWindow();
