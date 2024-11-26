@@ -1,4 +1,5 @@
 package com.banking.system.bankingsystem.Views;
+
 import com.banking.system.bankingsystem.BankApplication;
 import com.banking.system.bankingsystem.Controllers.Admin.AdminController;
 import com.banking.system.bankingsystem.Controllers.Client.ClientController;
@@ -17,18 +18,16 @@ import com.banking.system.bankingsystem.cof.AppConfig;
 
 public class ViewFactory {
     private AccountType signinAccountType;
-    //Client
+    // Client
     private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
     private AnchorPane dashbaordView;
     private AnchorPane transactionsView;
     private AnchorPane accountsView;
 
-    //Employee
+    // Employee
     private final ObjectProperty<EmployeeMenuOptions> employeeSelectedMenuItem;
-    //Admin
+    // Admin
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
-
-
 
     public ViewFactory() {
         this.signinAccountType = AccountType.CLIENT;
@@ -36,19 +35,23 @@ public class ViewFactory {
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
         this.employeeSelectedMenuItem = new SimpleObjectProperty<>();
     }
+
     public AccountType getSigninAccountType() {
         return signinAccountType;
     }
+
     public void setSigninAccountType(AccountType signinAccountType) {
         this.signinAccountType = signinAccountType;
     }
+
     public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem() {
         return clientSelectedMenuItem;
     }
-    public AnchorPane getDashboardView() {
-        if( dashbaordView == null) {
 
-            try{
+    public AnchorPane getDashboardView() {
+        if (dashbaordView == null) {
+
+            try {
                 dashbaordView = new FXMLLoader(getClass().getResource("/fxml/Client/Dashboard.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -56,9 +59,10 @@ public class ViewFactory {
         }
         return dashbaordView;
     }
+
     public AnchorPane getTransactionsView() {
-        if( transactionsView == null) {
-            try{
+        if (transactionsView == null) {
+            try {
                 transactionsView = new FXMLLoader(getClass().getResource("/fxml/Client/Transactions.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -66,9 +70,10 @@ public class ViewFactory {
         }
         return transactionsView;
     }
+
     public AnchorPane getAccountsView() {
-        if( accountsView == null) {
-            try{
+        if (accountsView == null) {
+            try {
                 accountsView = new FXMLLoader(getClass().getResource("/fxml/Client/Accounts.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -77,55 +82,50 @@ public class ViewFactory {
         return accountsView;
     }
 
-
-
-
-
     public void showSinginWindow() {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Signin.fxml"));
-            createStage(loader);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Signin.fxml"));
+        createStage(loader);
     }
 
-    public void showClientWindow(){
+    public void showClientWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/Client.fxml"));
         ClientController clientController = new ClientController();
         loader.setController(clientController);
         createStage(loader);
     }
-    public void showAdminWindow(){
+
+    public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Admin/Admin.fxml"));
         AdminController adminController = new AdminController();
         loader.setController(adminController);
         createStage(loader);
     }
-    public void showEmployeeWindow(){
+
+    public void showEmployeeWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Employee/Employee.fxml"));
         EmployeeController employeeController = new EmployeeController();
         loader.setController(employeeController);
         createStage(loader);
     }
-    //Admin
+
+    // Admin
     public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem() {
         return adminSelectedMenuItem;
     }
 
-    //Employee
+    // Employee
     public ObjectProperty<EmployeeMenuOptions> getEmployeeSelectedMenuItem() {
         return employeeSelectedMenuItem;
     }
 
-
-
-
-    private void createStage(FXMLLoader loader){
+    private void createStage(FXMLLoader loader) {
         AppConfig.init();
 
         Scene scene = null;
 
         try {
             scene = new Scene(loader.load());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Stage stage = new Stage();
@@ -138,5 +138,10 @@ public class ViewFactory {
 
     public void closeStage(Stage stage) {
         stage.close();
+    }
+
+    public void showLoginWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Signin.fxml"));
+        createStage(loader);
     }
 }

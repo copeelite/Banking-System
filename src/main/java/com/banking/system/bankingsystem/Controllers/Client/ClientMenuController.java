@@ -3,6 +3,8 @@ package com.banking.system.bankingsystem.Controllers.Client;
 import com.banking.system.bankingsystem.Models.Model;
 import com.banking.system.bankingsystem.Views.ClientMenuOptions;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -20,7 +22,6 @@ public class ClientMenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         addListeners();
     }
-
 
     private void addListeners() {
         dashboard_btn.setOnAction(e -> {
@@ -47,5 +48,12 @@ public class ClientMenuController implements Initializable {
     private void onAccounts() {
         System.out.println("Accounts");
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.ACCOUNTS);
+    }
+
+    @FXML
+    private void handleLogout() {
+        Stage stage = (Stage) logout_btn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 }

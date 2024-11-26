@@ -41,7 +41,7 @@
                <FontAwesomeIconView glyphName="USER" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn_signout" text="Signout">
+         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn_signout" text="Signout" onAction="#handleLogout">
             <graphic>
                <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
             </graphic>

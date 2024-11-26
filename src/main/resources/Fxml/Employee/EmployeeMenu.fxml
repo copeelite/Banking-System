@@ -9,7 +9,7 @@
 <?import javafx.scene.text.*?>
 <?import de.jensd.fx.glyphs.fontawesome.*?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.banking.system.bankingsystem.Controllers.Employee.EmployeeController">
+      fx:controller="com.banking.system.bankingsystem.Controllers.Employee.EmployeeMenuController">
     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/NavMenu.css">
         <AnchorPane prefHeight="720.0" prefWidth="180.0" styleClass="left_container">
             <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -42,7 +42,7 @@
                             <FontAwesomeIconView glyphName="USER" size="20" />
                         </graphic>
                     </Button>
-                    <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn_signout" text="Signout">
+                    <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn_signout" text="Signout" onAction="#handleLogout">
                         <graphic>
                             <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
                         </graphic>

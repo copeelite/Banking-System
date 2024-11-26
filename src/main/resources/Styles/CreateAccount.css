@@ -1,0 +1,119 @@
+.anchor-pane {
+    -fx-background-color: #f4f4f4;
+}
+
+.title-text {
+    -fx-fill: #2a4b8d;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+.form-section {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-margin: 10px;
+}
+
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2a4b8d;
+    -fx-padding: 0 0 10px 0;
+}
+
+.text-field, .password-field {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 35px;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 4px;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #2a4b8d;
+    -fx-effect: dropshadow(three-pass-box, rgba(42,75,141,0.2), 3, 0, 0, 0);
+}
+
+.check-box {
+    -fx-font-size: 14px;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 3px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #2a4b8d;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.create-button {
+    -fx-background-color: #2a4b8d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-min-width: 120px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.create-button:hover {
+    -fx-background-color: #1a3b7d;
+}
+
+.clear-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-min-width: 120px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.clear-button:hover {
+    -fx-background-color: #c82333;
+}
+
+.message-label {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+.success-message {
+    -fx-text-fill: #28a745;
+}
+
+.error-message {
+    -fx-text-fill: #dc3545;
+}
+
+.vbox {
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+}
+
+.hbox {
+    -fx-spacing: 15px;
+    -fx-alignment: center;
+}
+
+.text-field:empty:focused, .password-field:empty:focused {
+    -fx-prompt-text-fill: #6c757d;
+}
+
+.text-field:empty, .password-field:empty {
+    -fx-prompt-text-fill: #adb5bd;
+}
