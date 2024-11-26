@@ -15,13 +15,29 @@ import java.util.ResourceBundle;
 public class EmployeeMenuController implements Initializable {
     @FXML
     private Button logout_btn;
-
+    @FXML
+    private Button profile_btn;
+    @FXML
+    private Button create_client_btn;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        addListeners();
+
         Model.getInstance().getViewFactory().getEmployeeSelectedMenuItem().set(EmployeeMenuOptions.MANAGE_ACCOUNTS);
 
     }
+    private void addListeners() {
+        profile_btn.setOnAction(event -> onProfile());
+        create_client_btn.setOnAction(event -> onCreateAccount());
+    }
+    
+    private void onProfile() {
+        Model.getInstance().getViewFactory().getEmployeeSelectedMenuItem().set(EmployeeMenuOptions.PROFILE);
+    }
 
+    private void onCreateAccount() {
+        Model.getInstance().getViewFactory().getEmployeeSelectedMenuItem().set(EmployeeMenuOptions.MANAGE_ACCOUNTS);
+    }
     @FXML
     private void handleLogout() {
         Stage stage = (Stage) logout_btn.getScene().getWindow();

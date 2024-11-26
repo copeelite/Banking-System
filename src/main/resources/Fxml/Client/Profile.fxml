@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Profile.css"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.banking.system.bankingsystem.Controllers.Client.ProfileController">
+    
+    <VBox spacing="20" styleClass="profile-container">
+        <Text text="Personal Profile" styleClass="title-text"/>
+        
+        <VBox styleClass="section-container">
+            <Label text="Personal Details" styleClass="section-header"/>
+            <GridPane vgap="10" hgap="10">
+                <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                
+                <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1" disable="true"/>
+                
+                <Button fx:id="updateDetailsBtn" text="Update Details" 
+                        onAction="#handleUpdateDetails" 
+                        GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+        </VBox>
+        
+        <VBox styleClass="section-container">
+            <Label text="Change Password" styleClass="section-header"/>
+            <GridPane vgap="10" hgap="10">
+                <Label text="Current Password:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="currentPasswordField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                
+                <Label text="New Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="newPasswordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                
+                <Label text="Confirm Password:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="confirmPasswordField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                
+                <Button fx:id="changePasswordBtn" text="Change Password" 
+                        onAction="#handleChangePassword" 
+                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+        </VBox>
+        
+        <Label fx:id="messageLabel" styleClass="message-label"/>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,62 @@
+.profile-container {
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+}
+
+.title-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #2a4b8d;
+}
+
+.section-container {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-spacing: 15px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+.section-header {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2a4b8d;
+}
+
+.text-field, .password-field {
+    -fx-pref-width: 250px;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2a4b8d;
+    -fx-background-color: white;
+}
+
+Button {
+    -fx-background-color: #2a4b8d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+Button:hover {
+    -fx-background-color: #1a3b7d;
+}
+
+.message-label {
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.success-message {
+    -fx-text-fill: #28a745;
+}
+
+.error-message {
+    -fx-text-fill: #dc3545;
+}

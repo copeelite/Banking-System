@@ -47,7 +47,7 @@
             </graphic>
          </Button>
       </VBox>
-      <VBox prefHeight="120.0" prefWidth="130.0" styleClass="report_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <!-- <VBox prefHeight="120.0" prefWidth="130.0" styleClass="report_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Report Suggestion?" />
          <Label stylesheets="@../../Styles/NavMenu.css" text="Report anysuggestions" />
          <Button fx:id="report_btn" mnemonicParsing="false" text="Report">
@@ -55,6 +55,6 @@
                <FontAwesomeIconView glyphName="PLUS" />
             </graphic>
          </Button>
-      </VBox>
+      </VBox> -->
    </AnchorPane>
 </VBox>

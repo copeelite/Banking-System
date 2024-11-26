@@ -15,10 +15,23 @@ public class ClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().addListener((observableValue, oldValue, newValue) -> {
-            switch(newValue){
-                case ACCOUNTS -> client_parent.setCenter(Model.getInstance().getViewFactory().getAccountsView());
-                case TRANSACTIONS -> client_parent.setCenter(Model.getInstance().getViewFactory().getTransactionsView());
-                default -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
+            switch(newValue) {
+                case PROFILE -> {
+                    Model.getInstance().getViewFactory().setProfileView(null);
+                    client_parent.setCenter(Model.getInstance().getViewFactory().getProfileView());
+                }
+                case TRANSACTIONS -> {
+                    Model.getInstance().getViewFactory().setTransactionsView(null);
+                    client_parent.setCenter(Model.getInstance().getViewFactory().getTransactionsView());
+                }
+                case DASHBOARD -> {
+                    Model.getInstance().getViewFactory().setDashboardView(null);
+                    client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
+                }
+                case ACCOUNTS -> {
+                    Model.getInstance().getViewFactory().setAccountsView(null);
+                    client_parent.setCenter(Model.getInstance().getViewFactory().getAccountsView());
+                }
             }
         });
     }

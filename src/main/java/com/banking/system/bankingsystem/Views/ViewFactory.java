@@ -23,6 +23,8 @@ public class ViewFactory {
     private AnchorPane dashbaordView;
     private AnchorPane transactionsView;
     private AnchorPane accountsView;
+    private AnchorPane profileView;
+    private AnchorPane createAccountView;  
 
     // Employee
     private final ObjectProperty<EmployeeMenuOptions> employeeSelectedMenuItem;
@@ -47,7 +49,18 @@ public class ViewFactory {
     public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem() {
         return clientSelectedMenuItem;
     }
-
+    public AnchorPane getProfileView() {
+        if (profileView == null) {
+            try {
+                profileView = new FXMLLoader(getClass().getResource("/Fxml/Client/Profile.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return profileView;
+    }
+    
+    
     public AnchorPane getDashboardView() {
         if (dashbaordView == null) {
 
@@ -81,6 +94,18 @@ public class ViewFactory {
         }
         return accountsView;
     }
+
+    public AnchorPane getCreateAccountView() {
+        if (createAccountView == null) {
+            try {
+                createAccountView = new FXMLLoader(getClass().getResource("/Fxml/Employee/CreateAccount.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return createAccountView;
+    }
+    
 
     public void showSinginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Signin.fxml"));
@@ -143,5 +168,25 @@ public class ViewFactory {
     public void showLoginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Signin.fxml"));
         createStage(loader);
+    }
+
+    public void setDashboardView(AnchorPane view) {
+        this.dashbaordView = view;
+    }
+    
+    public void setTransactionsView(AnchorPane view) {
+        this.transactionsView = view;
+    }
+    
+    public void setAccountsView(AnchorPane view) {
+        this.accountsView = view;
+    }
+
+    public void setProfileView(AnchorPane view) {
+        this.profileView = view;
+    }
+
+    public void setCreateAccountView(AnchorPane createAccountView) {
+        this.createAccountView = createAccountView;
     }
 }

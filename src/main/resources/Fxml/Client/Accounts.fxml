@@ -14,8 +14,8 @@
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
       <Label fx:id="ch_acc_num" text="1234 5678" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit" />
-      <Label fx:id="transaction_limit" text="10" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" />
+      <!-- <Label fx:id="transaction_limit" text="10" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" /> -->
       <Label fx:id="ch_acc_date" text="2022-07-07" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
       <Label fx:id="ch_acc_bal" text="\$6,000.00" />
@@ -25,8 +25,8 @@
       <children>
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
          <Label fx:id="sv_acc_num" text="1234 5678" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Limit" />
-         <Label fx:id="withdrawal_limit" text="10" />
+         <!-- <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Limit" />
+         <Label fx:id="withdrawal_limit" text="10" /> -->
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" />
          <Label fx:id="sv_acc_date" text="2022-07-07" />
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
@@ -35,10 +35,17 @@
    </VBox>
    <VBox layoutX="486.0" layoutY="30.0" prefHeight="300.0" prefWidth="350.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Send money to Savings Account" wrappingWidth="300.0" />
-      <TextField fx:id="amout_to_sv" prefHeight="35.0" prefWidth="300.0" promptText="Enter amount" />
+      <TextField fx:id="amount_to_sv" prefHeight="35.0" prefWidth="300.0" promptText="Enter amount" />
       <Button fx:id="trans_to_sv_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" text="Transfer">
          <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" text="" />
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" text="" />
+         </graphic>
+      </Button>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw from Checking Account" wrappingWidth="300.0" />
+      <TextField fx:id="ch_withdrawal_amount" prefHeight="35.0" prefWidth="300.0" promptText="Enter amount" />
+      <Button fx:id="ch_withdrawal_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" text="Withdrawal">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="MONEY" size="20" />
          </graphic>
       </Button>
    </VBox>
@@ -48,6 +55,13 @@
       <Button fx:id="trans_to_ch_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" text="Transfer">
          <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20" />
+         </graphic>
+      </Button>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw from Savings Account" wrappingWidth="300.0" />
+      <TextField fx:id="sv_withdrawal_amount" prefHeight="35.0" prefWidth="300.0" promptText="Enter amount" />
+      <Button fx:id="sv_withdrawal_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" text="Withdrawal">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="MONEY" size="20" />
          </graphic>
       </Button>
    </VBox>
