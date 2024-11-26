@@ -1,5 +1,6 @@
 package com.banking.system.bankingsystem;
 
+import com.banking.system.bankingsystem.Models.DatabaseInitializer;
 import com.banking.system.bankingsystem.Models.Model;
 import com.banking.system.bankingsystem.Views.ViewFactory;
 import javafx.application.Application;
@@ -13,23 +14,21 @@ import java.io.IOException;
 import com.banking.system.bankingsystem.cof.AppConfig;
 
 public class BankApplication extends Application {
+
+    @Override
+    public void init() {
+        try {
+            DatabaseInitializer.initialize();
+            System.out.println("Database initialization completed");
+        } catch (Exception e) {
+            System.err.println("Failed to initialize database");
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+
     @Override
     public void start(Stage stage) {
-        //FXMLLoader fxmlLoader = new FXMLLoader(BankApplication.class.getResource("hello-view.fxml"));
-        //AppConfig.init();
-
-//        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/fxml/signin.fxml"));
-//
-//        Scene scene = new Scene(fxmlLoader, AppConfig.stageWidth, AppConfig.stageHeight);
-//
-//        stage.setTitle(AppConfig.title);
-//        stage.setResizable(AppConfig.stageResizable);
-//        stage.getIcons().add(new Image(BankApplication.class.getResourceAsStream(AppConfig.icon)));
-//        stage.setScene(scene);
-//        stage.show();
-
-//        ViewFactory viewFactory = new ViewFactory();
-//        viewFactory.showSinginWindow();
         Model.getInstance().getViewFactory().showSinginWindow();
     }
 

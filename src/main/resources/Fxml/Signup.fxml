@@ -40,7 +40,7 @@
         <TextField fx:id="username_fld" styleClass="input_field" promptText="Enter your username (optional)"/>
         <Label text="Password:"/>
         <TextField fx:id="password_fld" styleClass="input_field" promptText="Create a password"/>
-        <Button fx:id="signup_btn" mnemonicParsing="false" text="Sign Up"/>
+        <Button fx:id="signup_btn" mnemonicParsing="false" text="Sign Up" onAction="#handleSignUp"/>
         <Button text="Already have an account?" onAction="#handleSignIn"/>
 
         <Label fx:id="error_lbl" styleClass="error_label"/>

@@ -10,6 +10,12 @@ module com.banking.system.bankingsystem {
     requires org.kordamp.bootstrapfx.core;
 
 
+    opens com.banking.system.bankingsystem.Controllers to javafx.fxml;
+    opens com.banking.system.bankingsystem.Controllers.Admin to javafx.fxml;
+    opens com.banking.system.bankingsystem.Controllers.Client to javafx.fxml;
+    opens com.banking.system.bankingsystem.Controllers.Employee to javafx.fxml;
+
+
     opens com.banking.system.bankingsystem to javafx.fxml;
     exports com.banking.system.bankingsystem;
     exports com.banking.system.bankingsystem.Controllers;
