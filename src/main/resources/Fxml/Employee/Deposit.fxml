@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" 
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.banking.system.bankingsystem.Controllers.Employee.DepositController"
+            stylesheets="@../../Styles/Deposit.css">
+            
+    <VBox spacing="20" alignment="TOP_CENTER">
+        <Text text="Deposit Money" styleClass="title-text">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Text>
+        
+        <VBox spacing="10" styleClass="form-section">
+            <Label text="Client Information" styleClass="section-header"/>
+            <TextField fx:id="clientEmail" promptText="Client Email Address"/>
+        </VBox>
+        
+        <VBox spacing="10" styleClass="form-section">
+            <Label text="Account Type" styleClass="section-header"/>
+            <HBox spacing="20">
+                <RadioButton fx:id="savingsRadio" text="Savings Account" 
+                           toggleGroup="$accountTypeGroup"/>
+                <RadioButton fx:id="checkingRadio" text="Checking Account" 
+                           toggleGroup="$accountTypeGroup"/>
+            </HBox>
+        </VBox>
+        
+        <VBox spacing="10" styleClass="form-section">
+            <Label text="Deposit Amount" styleClass="section-header"/>
+            <TextField fx:id="depositAmount" promptText="Enter amount"/>
+        </VBox>
+        
+        <VBox spacing="10" styleClass="form-section">
+            <Label text="Description (Optional)" styleClass="section-header"/>
+            <TextField fx:id="description" promptText="Enter description"/>
+        </VBox>
+        
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="depositBtn" text="Process Deposit" 
+                    onAction="#handleDeposit" styleClass="deposit-button"/>
+            <Button fx:id="clearBtn" text="Clear Form" 
+                    onAction="#handleClear" styleClass="clear-button"/>
+        </HBox>
+        
+        <Label fx:id="messageLabel" styleClass="message-label"/>
+    </VBox>
+</AnchorPane>

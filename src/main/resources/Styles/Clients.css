@@ -1,0 +1,61 @@
+.title-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 10 0;
+}
+
+.table-view {
+    -fx-min-width: 800px;
+    -fx-min-height: 300px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10 0;
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-padding: 5px;
+}
+
+#usernameCol {
+    -fx-pref-width: 120px;
+}
+
+#emailCol {
+    -fx-pref-width: 180px;
+}
+
+#checkingAccCol, #savingsAccCol {
+    -fx-pref-width: 140px;
+}
+
+#checkingBalCol, #savingsBalCol {
+    -fx-pref-width: 120px;
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#createdAtCol {
+    -fx-pref-width: 120px;
+}
+
+.details-section {
+    -fx-padding: 10px;
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 5px;
+}
+
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 5 0;
+}
+
+.list-view {
+    -fx-min-height: 180px;
+    -fx-max-height: 180px;
+    -fx-min-width: 800px;
+}

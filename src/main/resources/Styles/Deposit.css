@@ -1,0 +1,37 @@
+.title-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 10 0;
+}
+
+.form-section {
+    -fx-padding: 10px;
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 5px;
+    -fx-min-width: 400px;
+}
+
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 5 0;
+}
+
+.deposit-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-min-width: 150px;
+    -fx-min-height: 40px;
+}
+
+.clear-button {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-min-width: 150px;
+    -fx-min-height: 40px;
+}
+
+.message-label {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}

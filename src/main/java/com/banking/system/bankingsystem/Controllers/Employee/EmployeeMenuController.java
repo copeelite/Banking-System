@@ -19,6 +19,8 @@ public class EmployeeMenuController implements Initializable {
     private Button profile_btn;
     @FXML
     private Button create_client_btn;
+    @FXML private Button clients_btn;
+    @FXML private Button deposit_btn;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addListeners();
@@ -29,8 +31,15 @@ public class EmployeeMenuController implements Initializable {
     private void addListeners() {
         profile_btn.setOnAction(event -> onProfile());
         create_client_btn.setOnAction(event -> onCreateAccount());
+        clients_btn.setOnAction(event -> onClients()); 
+        deposit_btn.setOnAction(event -> onDeposit());
     }
-    
+    private void onDeposit() {
+        Model.getInstance().getViewFactory().getEmployeeSelectedMenuItem().set(EmployeeMenuOptions.DEPOSIT);
+    }
+    private void onClients() {
+        Model.getInstance().getViewFactory().getEmployeeSelectedMenuItem().set(EmployeeMenuOptions.CLIENTS);
+    }
     private void onProfile() {
         Model.getInstance().getViewFactory().getEmployeeSelectedMenuItem().set(EmployeeMenuOptions.PROFILE);
     }

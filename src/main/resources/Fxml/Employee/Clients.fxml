@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" 
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.banking.system.bankingsystem.Controllers.Employee.ClientsController"
+            stylesheets="@../../Styles/Clients.css">
+            
+    <VBox spacing="20" alignment="TOP_CENTER">
+        <Text text="Client Management" styleClass="title-text">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Text>
+        
+        <!-- Search Section -->
+        <HBox spacing="10" alignment="CENTER">
+            <TextField fx:id="searchField" promptText="Search by email or username" prefWidth="300"/>
+            <Button fx:id="searchButton" text="Search"/>
+        </HBox>
+        
+        <!-- Clients Table -->
+        <TableView fx:id="clientsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="usernameCol" text="Username"/>
+                <TableColumn fx:id="emailCol" text="Email"/>
+                <TableColumn fx:id="checkingAccCol" text="Checking Account"/>
+                <TableColumn fx:id="checkingBalCol" text="Checking Balance"/>
+                <TableColumn fx:id="savingsAccCol" text="Savings Account"/>
+                <TableColumn fx:id="savingsBalCol" text="Savings Balance"/>
+                <TableColumn fx:id="createdAtCol" text="Created Date"/>
+            </columns>
+        </TableView>
+        
+        <!-- Client Details Section -->
+        <VBox spacing="10" styleClass="details-section">
+            <Label text="Transaction History" styleClass="section-header"/>
+            <ListView fx:id="transactionList" prefHeight="200"/>
+        </VBox>
+    </VBox>
+</AnchorPane>

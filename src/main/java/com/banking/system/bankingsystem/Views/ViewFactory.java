@@ -25,7 +25,8 @@ public class ViewFactory {
     private AnchorPane accountsView;
     private AnchorPane profileView;
     private AnchorPane createAccountView;  
-
+    private AnchorPane clientsView;
+    private AnchorPane depositView;
     // Employee
     private final ObjectProperty<EmployeeMenuOptions> employeeSelectedMenuItem;
     // Admin
@@ -106,6 +107,16 @@ public class ViewFactory {
         return createAccountView;
     }
     
+    public AnchorPane getDepositView() {
+        if (depositView == null) {
+            try {
+                depositView = new FXMLLoader(getClass().getResource("/Fxml/Employee/Deposit.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return depositView;
+    }
 
     public void showSinginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Signin.fxml"));
@@ -188,5 +199,24 @@ public class ViewFactory {
 
     public void setCreateAccountView(AnchorPane createAccountView) {
         this.createAccountView = createAccountView;
+    }
+
+    public AnchorPane getClientsView() {
+        if (clientsView == null) {
+            try {
+                clientsView = new FXMLLoader(getClass().getResource("/Fxml/Employee/Clients.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return clientsView;
+    }
+    
+    public void setClientsView(AnchorPane view) {
+        this.clientsView = view;
+    }
+
+    public void setDepositView(AnchorPane view) {
+        this.depositView = view;
     }
 }

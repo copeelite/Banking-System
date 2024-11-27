@@ -23,8 +23,13 @@ public class EmployeeController implements Initializable {
                     Model.getInstance().getViewFactory().setCreateAccountView(null);
                     client_parent.setCenter(Model.getInstance().getViewFactory().getCreateAccountView());
                 }
+                case DEPOSIT -> {
+                    Model.getInstance().getViewFactory().setDepositView(null);
+                    client_parent.setCenter(Model.getInstance().getViewFactory().getDepositView());
+                }
                 case CLIENTS -> {
-                    
+                    Model.getInstance().getViewFactory().setClientsView(null);
+                    client_parent.setCenter(Model.getInstance().getViewFactory().getClientsView());
                 }
             }
         });
