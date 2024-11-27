@@ -49,14 +49,6 @@ public class ManageUsersController implements Initializable {
         userTypeFilter.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> filterUsers());
     }
 
-    // private void setupTable() {
-    //     idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-    //     usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
-    //     emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-    //     roleCol.setCellValueFactory(new PropertyValueFactory<>("role"));
-
-    //     setupActionsColumn();
-    // }
     private void setupTable() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -310,7 +302,7 @@ public class ManageUsersController implements Initializable {
                                 isPlus.isSelected());
                     }
                 } catch (SQLException e) {
-                    showError("更新用户失败: " + e.getMessage());
+                    showError("Failed to update user: " + e.getMessage());
                 }
             }
             return null;
@@ -325,109 +317,5 @@ public class ManageUsersController implements Initializable {
             loadUsers();
         });
     }
-    // private void showEditUserDialog(UserData user) {
-    //     Dialog<UserData> dialog = new Dialog<>();
-    //     dialog.setTitle("Edit User");
-
-    //     GridPane grid = new GridPane();
-    //     grid.setHgap(10);
-    //     grid.setVgap(10);
-
-    //     TextField username = new TextField(user.getUsername());
-    //     TextField email = new TextField(user.getEmail());
-    //     PasswordField password = new PasswordField();
-    //     ComboBox<String> role = new ComboBox<>();
-    //     role.getItems().addAll("CLIENT", "EMPLOYEE");
-    //     role.setValue(user.getRole());
-
-    //     grid.add(new Label("Username:"), 0, 0);
-    //     grid.add(username, 1, 0);
-    //     grid.add(new Label("Email:"), 0, 1);
-    //     grid.add(email, 1, 1);
-    //     grid.add(new Label("New Password:"), 0, 2);
-    //     grid.add(password, 1, 2);
-    //     grid.add(new Label("Role:"), 0, 3);
-    //     grid.add(role, 1, 3);
-
-    //     dialog.getDialogPane().setContent(grid);
-    //     dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
-
-    //     dialog.setResultConverter(buttonType -> {
-    //         if (buttonType == ButtonType.OK) {
-    //             try (Connection conn = DatabaseConnection.connect()) {
-    //                 String sql;
-    //                 PreparedStatement stmt;
-
-    //                 if (password.getText().isEmpty()) {
-    //                     // If password is empty, don't update it
-    //                     sql = "UPDATE users SET username = ?, email = ?, role = ? WHERE user_id = ?";
-    //                     stmt = conn.prepareStatement(sql);
-    //                     stmt.setString(1, username.getText());
-    //                     stmt.setString(2, email.getText());
-    //                     stmt.setString(3, role.getValue());
-    //                     stmt.setInt(4, user.getId());
-    //                 } else {
-    //                     // If new password provided, update it
-    //                     sql = "UPDATE users SET username = ?, email = ?, password = ?, role = ? WHERE user_id = ?";
-    //                     stmt = conn.prepareStatement(sql);
-    //                     stmt.setString(1, username.getText());
-    //                     stmt.setString(2, email.getText());
-    //                     stmt.setString(3, password.getText());
-    //                     stmt.setString(4, role.getValue());
-    //                     stmt.setInt(5, user.getId());
-    //                 }
-
-    //                 int affected = stmt.executeUpdate();
-    //                 if (affected > 0) {
-    //                     return new UserData(
-    //                             user.getId(),
-    //                             username.getText(),
-    //                             email.getText(),
-    //                             role.getValue(),
-    //                             false);
-    //                 }
-    //             } catch (SQLException e) {
-    //                 showError("Failed to update user: " + e.getMessage());
-    //             }
-    //         }
-    //         return null;
-    //     });
-
-    //     Optional<UserData> result = dialog.showAndWait();
-    //     result.ifPresent(updatedUser -> {
-    //         int index = usersList.indexOf(user);
-    //         if (index >= 0) {
-    //             usersList.set(index, updatedUser);
-    //         }
-    //         loadUsers();
-    //     });
-    // }
-    private void handlePermissionChange(UserData user, boolean isPlus) {
-        try (Connection conn = DatabaseConnection.connect()) {
-            String sql = "UPDATE users SET is_plus = ? WHERE user_id = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setBoolean(1, isPlus);
-            stmt.setInt(2, user.getId());
-            
-            int affected = stmt.executeUpdate();
-            if (affected > 0) {
-                showSuccess("Employee permissions updated successfully");
-                loadUsers(); 
-            } else {
-                showError("Failed to update employee permissions");
-            }
-        } catch (SQLException e) {
-            showError("Database error: " + e.getMessage());
-        }
-    }
-
-
-    private void showSuccess(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-  
+    
 }

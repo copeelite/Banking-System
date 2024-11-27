@@ -47,19 +47,17 @@ public class DashboardController implements Initializable {
 
         loadUserData();
 
-        loadTransactionSummary();
         loadTransactionHistory();
         loadIncomeExpenseSummary();
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().addListener((observable, oldValue, newValue) -> {
                     if (newValue == ClientMenuOptions.DASHBOARD) {
                         loadAccountData();
-                        loadTransactionSummary();
+                        loadIncomeExpenseSummary();
 
                     }
                 });
 
         send_money_btn.setOnAction(event -> handleSendMoney());
-
     }
 
     private void updateDateTime() {
@@ -133,42 +131,6 @@ public class DashboardController implements Initializable {
             savings_bal.setText("Error");
             checking_acc_num.setText("****");
             savings_acc_num.setText("****");
-        }
-    }
-
-    private void loadTransactionSummary() {
-        try (Connection conn = DatabaseConnection.connect()) {
-            ResultSet tables = conn.getMetaData().getTables(null, null, "transactions", null);
-            if (!tables.next()) {
-                income_lbl.setText("+ $0.00");
-                expense_lbl.setText("- $0.00");
-                return;
-            }
-
-            income_lbl.setText("+ $0.00");
-            expense_lbl.setText("- $0.00");
-
-            String incomeSql = "SELECT SUM(amount) as total FROM transactions WHERE customer_id = ? AND type = 'CREDIT'";
-            PreparedStatement incomeStmt = conn.prepareStatement(incomeSql);
-            incomeStmt.setString(1, getCurrentUserEmail());
-            ResultSet incomeRs = incomeStmt.executeQuery();
-
-            if (incomeRs.next() && incomeRs.getDouble("total") > 0) {
-                double income = incomeRs.getDouble("total");
-                income_lbl.setText(String.format("+ $%.2f", income));
-            }
-
-            String expenseSql = "SELECT SUM(amount) as total FROM transactions WHERE customer_id = ? AND type = 'DEBIT'";
-            PreparedStatement expenseStmt = conn.prepareStatement(expenseSql);
-            expenseStmt.setString(1, getCurrentUserEmail());
-            ResultSet expenseRs = expenseStmt.executeQuery();
-
-            if (expenseRs.next() && expenseRs.getDouble("total") > 0) {
-                double expense = expenseRs.getDouble("total");
-                expense_lbl.setText(String.format("- $%.2f", expense));
-            }
-        } catch (Exception e) {
-            System.out.println("Database not initialized yet");
         }
     }
 

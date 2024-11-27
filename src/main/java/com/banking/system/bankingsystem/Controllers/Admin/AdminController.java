@@ -17,7 +17,7 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
         switch(newValue) {
             case MANAGE_USERS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getManageUsersView());
             case APPROVE_REQUESTS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAccountRequestsView());
-            // case GENERATE_REPORTS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getReportsView());
+            case GENERATE_REPORTS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getReportsView());
             // case ASSIGN_ROLES -> admin_parent.setCenter(Model.getInstance().getViewFactory().getRolesView());
         }
     });

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.banking.system.bankingsystem.Controllers.Admin.ReportsController">
+    <VBox spacing="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Generate Reports"/>
+        
+        <HBox spacing="10">
+            <DatePicker fx:id="startDate" promptText="Start Date"/>
+            <DatePicker fx:id="endDate" promptText="End Date"/>
+            <ComboBox fx:id="reportType" promptText="Report Type"/>
+            <Button fx:id="generateBtn" text="Generate Report"/>
+        </HBox>
+        
+        <TableView fx:id="reportTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="dateCol" text="Date"/>
+                <TableColumn fx:id="typeCol" text="Type"/>
+                <TableColumn fx:id="amountCol" text="Amount"/>
+                <TableColumn fx:id="descriptionCol" text="Description"/>
+            </columns>
+        </TableView>
+        
+        <HBox spacing="20">
+            <Text text="Total Transactions: "/>
+            <Text fx:id="totalTransactions"/>
+            <Text text="Total Amount: "/>
+            <Text fx:id="totalAmount"/>
+        </HBox>
+        
+        <Button fx:id="exportBtn" text="Export to CSV"/>
+    </VBox>
+</AnchorPane>

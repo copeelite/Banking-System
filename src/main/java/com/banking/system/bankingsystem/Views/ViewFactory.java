@@ -29,6 +29,10 @@ public class ViewFactory {
     private AnchorPane depositView;
 
     private AnchorPane accountRequestsView; 
+
+
+    private AnchorPane reportsView;
+
     // Employee
     private final ObjectProperty<EmployeeMenuOptions> employeeSelectedMenuItem;
     // Admin
@@ -72,6 +76,16 @@ public class ViewFactory {
         }
     }
 
+    public AnchorPane getReportsView() {
+        if (reportsView == null) {
+            try {
+                reportsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Reports.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return reportsView;
+    }
     public AnchorPane getAccountRequestsView() {  
         if (accountRequestsView == null) {
             try {
