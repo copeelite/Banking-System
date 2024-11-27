@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.banking.system.bankingsystem.Controllers.Admin.ManageUsersController"
+            prefHeight="750.0" prefWidth="850.0">
+            
+    <VBox spacing="20" alignment="TOP_CENTER">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        
+        <HBox spacing="10" alignment="CENTER">
+            <ComboBox fx:id="userTypeFilter" promptText="User Type"/>
+            <TextField fx:id="searchField" promptText="Search users..."/>
+            <Button fx:id="addUserBtn" text="Add User"/>
+        </HBox>
+        
+        <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID"/>
+                <TableColumn fx:id="usernameCol" text="Username"/>
+                <TableColumn fx:id="emailCol" text="Email"/>
+                <TableColumn fx:id="roleCol" text="Role"/>
+                <TableColumn fx:id="actionsCol" text="Actions"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

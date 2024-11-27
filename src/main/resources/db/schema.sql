@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(50),
     role VARCHAR(20) NOT NULL, -- 'ADMIN', 'EMPLOYEE', 'CLIENT'
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_plus BOOLEAN DEFAULT FALSE
 );
 
 -- accounts table
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS transactions (
 CREATE TABLE IF NOT EXISTS account_requests (
     request_id INTEGER PRIMARY KEY AUTOINCREMENT,
     customer_id INTEGER,
-    request_type VARCHAR(50), -- 'NEW_ACCOUNT', 'CLOSE_ACCOUNT', 'UPDATE_INFO'
+    request_type VARCHAR(50),
     status VARCHAR(20) DEFAULT 'PENDING',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     processed_by INTEGER,

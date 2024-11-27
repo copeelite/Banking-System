@@ -13,9 +13,9 @@
    <VBox layoutX="20.0" layoutY="30.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
       <Label fx:id="ch_acc_num" text="1234 5678" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit" />
-      <!-- <Label fx:id="transaction_limit" text="10" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" /> -->
+      <!-- <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit" />
+      <Label fx:id="transaction_limit" text="10" />-->
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" /> 
       <Label fx:id="ch_acc_date" text="2022-07-07" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
       <Label fx:id="ch_acc_bal" text="\$6,000.00" />

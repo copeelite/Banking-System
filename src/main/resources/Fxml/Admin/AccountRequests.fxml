@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.banking.system.bankingsystem.Controllers.Admin.AccountRequestsController"
+            prefHeight="750.0" prefWidth="850.0">
+            
+    <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" 
+          AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+        <Label text="Account Requests" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        
+        <TableView fx:id="requestsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="customerEmailCol" text="Customer Email" prefWidth="200"/>
+                <TableColumn fx:id="accountTypeCol" text="Account Type" prefWidth="100"/>
+                <TableColumn fx:id="depositCol" text="Initial Deposit" prefWidth="120"/>
+                <TableColumn fx:id="employeeCol" text="Requested By" prefWidth="150"/>
+                <TableColumn fx:id="createdAtCol" text="Created At" prefWidth="150"/>
+                <TableColumn fx:id="actionsCol" text="Actions" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

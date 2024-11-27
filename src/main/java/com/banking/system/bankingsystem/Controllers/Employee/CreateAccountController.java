@@ -11,8 +11,8 @@ import com.banking.system.bankingsystem.Models.DatabaseConnection;
 
 public class CreateAccountController implements Initializable {
     @FXML private TextField customerEmail;
-    @FXML private RadioButton savingsCheck;
-    @FXML private RadioButton checkingCheck;
+    @FXML private RadioButton savingsCheck;   
+@FXML private RadioButton checkingCheck; 
     @FXML private TextField initialDeposit;
     @FXML private Label messageLabel;
 
@@ -31,20 +31,17 @@ public class CreateAccountController implements Initializable {
             conn.setAutoCommit(false);
             try {
                 if (!userExists(conn, customerEmail.getText().trim())) {
-                    messageLabel.setText("User does not exist, please confirm the email address!");
+                    messageLabel.setText("Client Type User does not exist, please confirm the email address!");
                     messageLabel.setStyle("-fx-text-fill: red;");
                     return;
                 }
 
-                String accountType = savingsCheck.isSelected() ? "SAVINGS" : "CHECKING";
-                
-                if (hasAccountType(conn, customerEmail.getText().trim(), accountType)) {
-                    messageLabel.setText("User already has a " + accountType + " account!");
-                    messageLabel.setStyle("-fx-text-fill: red;");
-                    return;
+                if (checkingCheck.isSelected()) {
+                    createAccount(conn, "CHECKING");
                 }
-
-                createAccount(conn, accountType);
+                if (savingsCheck.isSelected()) {
+                    createAccount(conn, "SAVINGS"); 
+                }
 
                 if (!initialDeposit.getText().trim().isEmpty()) {
                     double amount = Double.parseDouble(initialDeposit.getText().trim());
@@ -54,9 +51,9 @@ public class CreateAccountController implements Initializable {
                 }
 
                 conn.commit();
-                showSuccessAlert();
+                messageLabel.setText("Account created successfully!");
+                messageLabel.setStyle("-fx-text-fill: green;");
                 clearForm();
-                
             } catch (Exception e) {
                 conn.rollback();
                 messageLabel.setText("Failed to create account: " + e.getMessage());
@@ -156,24 +153,5 @@ public class CreateAccountController implements Initializable {
         transStmt.setString(3, accountType);
         transStmt.executeUpdate();
     }
-
-    private boolean hasAccountType(Connection conn, String email, String accountType) throws SQLException {
-        String sql = "SELECT COUNT(*) FROM accounts a " +
-                    "JOIN users u ON a.customer_id = u.user_id " +
-                    "WHERE u.email = ? AND a.account_type = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, email);
-            pstmt.setString(2, accountType);
-            ResultSet rs = pstmt.executeQuery();
-            return rs.getInt(1) > 0;
-        }
-    }
-
-    private void showSuccessAlert() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Account created successfully!");
-        alert.showAndWait();
-    }
+    
 }

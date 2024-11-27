@@ -27,6 +27,8 @@ public class ViewFactory {
     private AnchorPane createAccountView;  
     private AnchorPane clientsView;
     private AnchorPane depositView;
+
+    private AnchorPane accountRequestsView; 
     // Employee
     private final ObjectProperty<EmployeeMenuOptions> employeeSelectedMenuItem;
     // Admin
@@ -61,7 +63,25 @@ public class ViewFactory {
         return profileView;
     }
     
-    
+    public AnchorPane getManageUsersView() {
+        try {
+            return new FXMLLoader(getClass().getResource("/Fxml/Admin/ManageUsers.fxml")).load();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public AnchorPane getAccountRequestsView() {  
+        if (accountRequestsView == null) {
+            try {
+                accountRequestsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/AccountRequests.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return accountRequestsView;
+    }
     public AnchorPane getDashboardView() {
         if (dashbaordView == null) {
 

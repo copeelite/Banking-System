@@ -197,6 +197,10 @@ public class AccountsController implements Initializable {
                 accNumLabel.setText(rs.getString("account_number"));
                 balLabel.setText(String.format("$ %.2f", rs.getDouble("balance")));
                 dateLabel.setText(rs.getDate("created_at").toString());
+            } else {
+                accNumLabel.setText("****");
+                balLabel.setText("$ 0.00");
+                dateLabel.setText("N/A");
             }
         }
     }

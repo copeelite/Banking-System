@@ -6,18 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="client_parent" xmlns="http://javafx.com/javafx"
+<BorderPane fx:id="admin_parent" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml">
-    <Label text="Admin Window" style="-fx-text-fill: white;"/>
-
     <left>
-        <VBox>
-            <fx:include source="AdminMenu.fxml"/>
-        </VBox>
+        <fx:include source="AdminMenu.fxml"/>
     </left>
     <center>
-        <VBox>
-            <fx:include source="CreateClient.fxml"/>
-        </VBox>
+        <fx:include source="ManageUsers.fxml"/>
     </center>
 </BorderPane>
