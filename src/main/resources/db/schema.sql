@@ -37,12 +37,12 @@ CREATE TABLE IF NOT EXISTS transactions (
 -- account_requests table
 CREATE TABLE IF NOT EXISTS account_requests (
     request_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    customer_id INTEGER,
-    request_type VARCHAR(50),
-    status VARCHAR(20) DEFAULT 'PENDING',
+    customer_email TEXT NOT NULL,
+    account_type TEXT NOT NULL,
+    initial_deposit DECIMAL(15,2),
+    employee_email TEXT NOT NULL,
+    status TEXT DEFAULT 'PENDING',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    processed_by INTEGER,
-    processed_at TIMESTAMP,
-    FOREIGN KEY (customer_id) REFERENCES users(user_id),
-    FOREIGN KEY (processed_by) REFERENCES users(user_id)
+    FOREIGN KEY (customer_email) REFERENCES users(email),
+    FOREIGN KEY (employee_email) REFERENCES users(email)
 );

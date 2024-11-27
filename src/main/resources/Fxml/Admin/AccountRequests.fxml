@@ -11,7 +11,7 @@
             
     <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" 
           AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
-        <Label text="Account Requests" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Label text="Pending Requests" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
         
         <TableView fx:id="requestsTable" VBox.vgrow="ALWAYS">
             <columns>
@@ -21,6 +21,19 @@
                 <TableColumn fx:id="employeeCol" text="Requested By" prefWidth="150"/>
                 <TableColumn fx:id="createdAtCol" text="Created At" prefWidth="150"/>
                 <TableColumn fx:id="actionsCol" text="Actions" prefWidth="120"/>
+            </columns>
+        </TableView>
+        
+        <Label text="Completed Requests" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        
+        <TableView fx:id="completedRequestsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="completedCustomerEmailCol" text="Customer Email" prefWidth="200"/>
+                <TableColumn fx:id="completedAccountTypeCol" text="Account Type" prefWidth="100"/>
+                <TableColumn fx:id="completedDepositCol" text="Initial Deposit" prefWidth="120"/>
+                <TableColumn fx:id="completedEmployeeCol" text="Requested By" prefWidth="150"/>
+                <TableColumn fx:id="completedCreatedAtCol" text="Created At" prefWidth="150"/>
+                <TableColumn fx:id="completedStatusCol" text="Status" prefWidth="120"/>
             </columns>
         </TableView>
     </VBox>

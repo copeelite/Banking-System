@@ -92,22 +92,19 @@ public class DashboardController implements Initializable {
     private void loadAccountData() {
         try (Connection conn = DatabaseConnection.connect()) {
             String currentEmail = getCurrentUserEmail();
-            System.out.println("Current user email: " + currentEmail);
-
+            
             String userIdSql = "SELECT user_id FROM users WHERE email = ?";
             PreparedStatement userStmt = conn.prepareStatement(userIdSql);
             userStmt.setString(1, currentEmail);
             ResultSet userRs = userStmt.executeQuery();
 
             if (!userRs.next()) {
-                System.out.println("User not found for email: " + currentEmail);
                 return;
             }
 
             int userId = userRs.getInt("user_id");
-            System.out.println("User ID: " + userId);
-
-            String sql = "SELECT account_type, account_number, balance FROM accounts WHERE customer_id = ?";
+            
+            String sql = "SELECT account_type, account_number, balance, created_at FROM accounts WHERE customer_id = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, userId);
             ResultSet rs = pstmt.executeQuery();
@@ -122,24 +119,20 @@ public class DashboardController implements Initializable {
                 String accountNumber = rs.getString("account_number");
                 double balance = rs.getDouble("balance");
 
-                System.out.println("Found account: " + accountType + ", number: " + accountNumber);
-
                 if ("CHECKING".equals(accountType)) {
                     checking_acc_num.setText(accountNumber.substring(accountNumber.length() - 4));
                     checking_bal.setText(String.format("$%.2f", balance));
-                    System.out.println("Updated checking display");
                 } else if ("SAVINGS".equals(accountType)) {
                     savings_acc_num.setText(accountNumber.substring(accountNumber.length() - 4));
                     savings_bal.setText(String.format("$%.2f", balance));
-                    System.out.println("Updated savings display");
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Error loading account data: " + e.getMessage());
+        } catch (SQLException e) {
             e.printStackTrace();
-
-            checking_acc_num.setText("**** **** ****");
-            savings_acc_num.setText("**** **** ****");
+            checking_bal.setText("Error");
+            savings_bal.setText("Error");
+            checking_acc_num.setText("****");
+            savings_acc_num.setText("****");
         }
     }
 
@@ -309,6 +302,11 @@ public class DashboardController implements Initializable {
     }
 
     private void processSendMoney(String receiverEmail, double amount, String message) {
+        if (receiverEmail.equals(getCurrentUserEmail())) {
+            showAlert("Error", "You cannot send money to yourself");
+            return;
+        }
+
         try (Connection conn = DatabaseConnection.connect()) {
             conn.setAutoCommit(false);
             try {

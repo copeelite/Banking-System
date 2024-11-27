@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import com.banking.system.bankingsystem.Models.DatabaseConnection;
+import com.banking.system.bankingsystem.Models.Model;
 
 public class CreateAccountController implements Initializable {
     @FXML private TextField customerEmail;
@@ -15,6 +16,7 @@ public class CreateAccountController implements Initializable {
 @FXML private RadioButton checkingCheck; 
     @FXML private TextField initialDeposit;
     @FXML private Label messageLabel;
+    @FXML private Label employeeStatusLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -27,22 +29,50 @@ public class CreateAccountController implements Initializable {
             return;
         }
 
+        if (!checkEmployeePermission()) {
+            
+            showAlert("Request Sent", "As a regular employee, your account creation request will be sent to admin for approval.");
+            
+            try (Connection conn = DatabaseConnection.connect()) {
+                String sql = "INSERT INTO account_requests (customer_email, account_type, initial_deposit, employee_email, status) VALUES (?, ?, ?, ?, 'PENDING')";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                
+                String accountType = checkingCheck.isSelected() ? "CHECKING" : "SAVINGS";
+                double deposit = initialDeposit.getText().trim().isEmpty() ? 0.0 : 
+                               Double.parseDouble(initialDeposit.getText().trim());
+                
+                pstmt.setString(1, customerEmail.getText().trim());
+                pstmt.setString(2, accountType);
+                pstmt.setDouble(3, deposit);
+                pstmt.setString(4, Model.getInstance().getCurrentUserEmail());
+                
+                int result = pstmt.executeUpdate();
+                if (result > 0) {
+                    showSuccess("Account creation request has been sent to admin for approval");
+                    clearForm();
+                }
+            } catch (SQLException e) {
+                showError("Error submitting request: " + e.getMessage());
+            }
+            return;
+        }
+
         try (Connection conn = DatabaseConnection.connect()) {
             conn.setAutoCommit(false);
             try {
                 if (!userExists(conn, customerEmail.getText().trim())) {
-                    messageLabel.setText("Client Type User does not exist, please confirm the email address!");
-                    messageLabel.setStyle("-fx-text-fill: red;");
+                    showAlert("Error", "Client does not exist with this email address!");
                     return;
                 }
 
-                if (checkingCheck.isSelected()) {
-                    createAccount(conn, "CHECKING");
-                }
-                if (savingsCheck.isSelected()) {
-                    createAccount(conn, "SAVINGS"); 
+                String accountType = checkingCheck.isSelected() ? "CHECKING" : "SAVINGS";
+                if (accountExists(conn, customerEmail.getText().trim(), accountType)) {
+                    showAlert("Error", "Client already has this type of account!");
+                    return;
                 }
 
+                createAccount(conn, accountType);
+                
                 if (!initialDeposit.getText().trim().isEmpty()) {
                     double amount = Double.parseDouble(initialDeposit.getText().trim());
                     if (amount > 0) {
@@ -51,17 +81,14 @@ public class CreateAccountController implements Initializable {
                 }
 
                 conn.commit();
-                messageLabel.setText("Account created successfully!");
-                messageLabel.setStyle("-fx-text-fill: green;");
+                showAlert("Success", "Account has been created successfully!");
                 clearForm();
             } catch (Exception e) {
                 conn.rollback();
-                messageLabel.setText("Failed to create account: " + e.getMessage());
-                messageLabel.setStyle("-fx-text-fill: red;");
+                showAlert("Error", "Failed to create account: " + e.getMessage());
             }
-        } catch (Exception e) {
-            messageLabel.setText("Database connection failed");
-            messageLabel.setStyle("-fx-text-fill: red;");
+        } catch (SQLException e) {
+            showAlert("Error", "Database connection failed: " + e.getMessage());
         }
     }
 
@@ -153,5 +180,49 @@ public class CreateAccountController implements Initializable {
         transStmt.setString(3, accountType);
         transStmt.executeUpdate();
     }
-    
+
+    private boolean accountExists(Connection conn, String email, String accountType) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM accounts a " +
+                    "JOIN users u ON a.customer_id = u.user_id " +
+                    "WHERE u.email = ? AND a.account_type = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            pstmt.setString(2, accountType);
+            ResultSet rs = pstmt.executeQuery();
+            return rs.getInt(1) > 0;
+        }
+    }
+    private void showError(String message) {
+        messageLabel.setText(message);
+        messageLabel.setStyle("-fx-text-fill: red;");
+        showAlert("Error", message);
+    }
+    private boolean checkEmployeePermission() {
+        try (Connection conn = DatabaseConnection.connect()) {
+            String sql = "SELECT is_plus FROM users WHERE email = ? AND role = 'EMPLOYEE'";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, Model.getInstance().getCurrentUserEmail());
+            ResultSet rs = pstmt.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getBoolean("is_plus");
+            }
+            return false;
+        } catch (SQLException e) {
+            showError("Check permission failed: " + e.getMessage());
+            return false;
+        }
+    }
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+    private void showSuccess(String message) {
+        messageLabel.setText(message);
+        messageLabel.setStyle("-fx-text-fill: green;");
+        showAlert("Success", message);
+    }
 }

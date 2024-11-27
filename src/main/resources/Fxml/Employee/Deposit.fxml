@@ -38,8 +38,11 @@
         </VBox>
         
         <VBox spacing="10" styleClass="form-section">
-            <Label text="Description (Optional)" styleClass="section-header"/>
-            <TextField fx:id="description" promptText="Enter description"/>
+            
+            <TextField fx:id="description" text="Cash Deposit" 
+                      disable="true" 
+                      visible="false" 
+                      style="-fx-opacity: 0.7;"/>
         </VBox>
         
         <HBox spacing="20" alignment="CENTER">

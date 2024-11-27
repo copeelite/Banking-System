@@ -21,6 +21,8 @@
             </font>
         </Text>
         
+        <Label fx:id="employeeStatusLabel" styleClass="status-label"/>
+        
         <VBox spacing="10" styleClass="form-section">
             <Label text="Customer Information" styleClass="section-header"/>
             <TextField fx:id="customerEmail" promptText="Email Address"/>

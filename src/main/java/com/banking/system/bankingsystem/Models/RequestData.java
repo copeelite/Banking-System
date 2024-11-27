@@ -10,6 +10,7 @@ public class RequestData {
     private final DoubleProperty initialDeposit;
     private final StringProperty employeeEmail;
     private final ObjectProperty<LocalDateTime> createdAt;
+    private String status;
 
     public RequestData(int requestId, String customerEmail, String accountType, 
                       double initialDeposit, String employeeEmail, LocalDateTime createdAt) {
@@ -28,6 +29,14 @@ public class RequestData {
     public double getInitialDeposit() { return initialDeposit.get(); }
     public String getEmployeeEmail() { return employeeEmail.get(); }
     public LocalDateTime getCreatedAt() { return createdAt.get(); }
+    public String getStatus() {
+        return status;
+    }
+
+    // Setters
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     // Property getters
     public IntegerProperty requestIdProperty() { return requestId; }
